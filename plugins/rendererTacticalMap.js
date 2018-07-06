@@ -192,7 +192,7 @@ function drawSun(target, x, y) {
     img.onload = () => {
         target.drawImage(img, x + tileHeight * .45, y + tileHeight * .20)
     }
-    img.src = 'https://ankama.akamaized.net/games/dofus-tablette/assets/2.19.0/gfx/world/png/21000.png';
+    img.src = 'https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/gfx/world/png/21000.png';
 }
 
 function initCells() {

@@ -6,7 +6,7 @@ function downloadAsset(asset, x, y, sx, sy, ctx) {
         ctx.drawImage(img, x, y, img.width, img.height)
         ctx.restore()
     }
-    img.src = `https://ankama.akamaized.net/games/dofus-tablette/assets/2.19.0/gfx/world/png/${asset}.png`;
+    img.src = `https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/gfx/world/png/${asset}.png`;
 }
 
 function generateRealMap(mapJson) {
@@ -46,5 +46,5 @@ function generateRealMap(mapJson) {
             }
         }
     }
-    img.src = `https://ankama.akamaized.net/games/dofus-tablette/assets/2.19.0/backgrounds/${content.id}.jpg`;
+    img.src = `https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/backgrounds/${content.id}.jpg`;
 }

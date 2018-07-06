@@ -4,7 +4,7 @@ require('./plugins/renderRealMap.js')
 
 function download() {
     rp({
-        uri: `https://ankama.akamaized.net/games/dofus-tablette/assets/2.19.0/maps/${$('#mapid').val()}.json`,
+        uri: `https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/maps/${$('#mapid').val()}.json`,
         json: true
     }).then((repos) => {
         var mapJson = repos;
