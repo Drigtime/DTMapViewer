@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" media="screen" href="./node_modules/materialize-css/dist/css/materialize.min.css"
+    />
+    <script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="input-field inline col s12">
+                <input id="mapid" type="number" class="validate">
+                <label for="mapid">MapID</label>
+            </div>
+            <p class="col s3 m2">
+                <label>
+                    <input class="with-gap" name="layer" type="radio" value="real" checked />
+                    <span>Real</span>
+                </label>
+            </p>
+            <p class="col s3 m2">
+                <label>
+                    <input class="with-gap" name="layer" type="radio" value="tactical" />
+                    <span>Tactical</span>
+                </label>
+            </p>
+            <a id="render" class="waves-effect waves-light btn col s3 m4 offset-s3 offset-m4">Display map</a>
+        </div>
+        <canvas id="mapStatus" style="width: 100%"></canvas>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <h4 id="alert-message"></h4>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-light btn">Ok</a>
+        </div>
+    </div>
+</body>
+<script src="./plugins/rendererTacticalMap.js"></script>
+<script src="./plugins/renderRealMap.js"></script>
+<script src="renderer.js"></script>
+</html>
