@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "build-osx": "electron-packager ./ --electron-version 2.0.4 --platform darwin --out ./dist --overwrite",
-    "build-linux": "electron-packager ./ --electron-version 2.0.4 --platform linux --out ./dist --overwrite",
-    "build-win": "electron-packager ./ --electron-version 2.0.4 --platform win32 --out ./dist --overwrite"
+    "build-osx": "electron-packager ./ --electron-version 2.0.4 --platform darwin --overwrite",
+    "build-linux": "electron-packager ./ --electron-version 2.0.4 --platform linux --overwrite",
+    "build-win": "electron-packager ./ --electron-version 2.0.4 --platform win32 --overwrite"
   },
   "dependencies": {
     "electron": "^2.0.4",
