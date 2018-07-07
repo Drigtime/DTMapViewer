@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "build-osx": "electron-packager ./ --electron-version 2.0.4 --platform darwin --overwrite",
-    "build-linux": "electron-packager ./ --electron-version 2.0.4 --platform linux --overwrite",
-    "build-win": "electron-packager ./ --electron-version 2.0.4 --platform win32 --overwrite"
+    "build-osx": "electron-packager ./ --electron-version 2.0.4 --platform darwin --overwrite --out dist/",
+    "build-linux": "electron-packager ./ --electron-version 2.0.4 --platform linux --overwrite --out dist/",
+    "build-win": "electron-packager ./ --electron-version 2.0.4 --platform win32 --overwrite --out dist/"
   },
   "dependencies": {
     "jquery": "^3.3.1",

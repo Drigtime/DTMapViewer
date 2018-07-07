@@ -17,7 +17,7 @@ function dlMapJson(mapid) {
         if (err.statusCode === 404) {
             var elems = document.querySelectorAll('#unknownMap');
             var instances = M.Modal.init(elems);
-            $('#alert-message').text(`Error, map ${mapid} doesn't exist`)
+            $('#unknownMap > .alert-message > h4').text(`Error, map ${mapid} doesn't exist`)
             instances[0].open();
         }
     })
@@ -66,11 +66,13 @@ function dlData() {
                         }
                     }
                 }
+                let tempMatch = []
                 for (const map in match) {
-                    if (match[map].name == "") {
-                        match.splice(parseInt(map), 1)
+                    if (match[map].name != "") {
+                        tempMatch.push(match[map])
                     }
                 }
+                match = tempMatch;
                 $('#slide-out').html(`<div class="collection"></div>`)
                 for (const map in match) {
                     $('#slide-out > .collection').append(`<a href="#" class="collection-item" data-map-id="${match[map].id}">${match[map].id}<div class="secondary-content">${match[map].name}</div></a>`)
