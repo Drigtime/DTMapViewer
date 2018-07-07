@@ -1,6 +1,8 @@
 # mapViewer
 DT map viewer
 
+![Imgur](https://i.imgur.com/3Pk2mki.gif)
+
 **How to download & install :**
 ```
 git clone https://github.com/Drigtime/mapViewer
