@@ -4,6 +4,12 @@
 <head>
     <link rel="stylesheet" type="text/css" media="screen" href="./node_modules/materialize-css/dist/css/materialize.min.css"
     />
+    <style>
+        .sidenav {
+            top: 0% !important;
+            width: 350px !important;
+        }
+    </style>
     <script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script>window.$ = window.jQuery = require('jquery');</script>
 </head>
@@ -11,7 +17,15 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="input-field inline col s12">
+            <div class="input-field inline col s2">
+                <input id="x" type="number" class="validate">
+                <label for="x">X</label>
+            </div>
+            <div class="input-field inline col s2">
+                <input id="y" type="number" class="validate">
+                <label for="y">Y</label>
+            </div>
+            <div class="input-field inline col s8">
                 <input id="mapid" type="number" class="validate">
                 <label for="mapid">MapID</label>
             </div>
@@ -31,16 +45,10 @@
         </div>
         <canvas id="mapStatus" style="width: 100%"></canvas>
     </div>
-    <div class="modal">
-        <div class="modal-content">
-            <h4 id="alert-message"></h4>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-light btn">Ok</a>
-        </div>
-    </div>
+    <ul id="slide-out" class="sidenav"></ul>
 </body>
 <script src="./plugins/rendererTacticalMap.js"></script>
 <script src="./plugins/renderRealMap.js"></script>
 <script src="renderer.js"></script>
+
 </html>
