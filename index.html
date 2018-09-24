@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="./node_modules/materialize-css/dist/css/materialize.min.css"
-    />
+    <link rel="stylesheet" type="text/css" media="screen" href="./node_modules/materialize-css/dist/css/materialize.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <style>
         .sidenav {
             top: 0% !important;
@@ -14,34 +14,34 @@
     <script>window.$ = window.jQuery = require('jquery');</script>
 </head>
 
-<body>
+<body class="grey darken-3">
     <div class="container">
         <div class="row">
             <div class="input-field inline col s2">
-                <input id="x" type="number" class="validate">
+                <input id="x" type="number">
                 <label for="x">X</label>
             </div>
             <div class="input-field inline col s2">
-                <input id="y" type="number" class="validate">
+                <input id="y" type="number">
                 <label for="y">Y</label>
             </div>
             <div class="input-field inline col s8">
-                <input id="mapid" type="number" class="validate">
+                <input id="mapid" type="number" value="101716483">
                 <label for="mapid">MapID</label>
             </div>
             <p class="col s3 m2">
                 <label>
-                    <input class="with-gap" name="layer" type="radio" value="real" checked />
+                    <input class="with-gap blue-grey" name="layer" type="radio" value="real" checked />
                     <span>Real</span>
                 </label>
             </p>
             <p class="col s3 m2">
                 <label>
-                    <input class="with-gap" name="layer" type="radio" value="tactical" />
+                    <input class="with-gap blue-grey" name="layer" type="radio" value="tactical" />
                     <span>Tactical</span>
                 </label>
             </p>
-            <a id="render" class="waves-effect waves-light btn col s3 m4 offset-s3 offset-m4">Display map</a>
+            <a id="render" class="waves-effect waves-light btn col s3 m4 offset-s3 offset-m4 blue-grey">Display map</a>
         </div>
         <canvas id="mapStatus" style="width: 100%"></canvas>
     </div>
@@ -55,8 +55,12 @@
         </div>
     </div>
 </body>
-<script src="./plugins/rendererTacticalMap.js"></script>
+<script src="./plugins/renderTacticalMap.js"></script>
 <script src="./plugins/renderRealMap.js"></script>
 <script src="renderer.js"></script>
+<script>
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+</script>
 
 </html>

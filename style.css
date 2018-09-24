@@ -1,0 +1,16 @@
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: #607d8b !important;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    border: 2px solid #607d8b !important;
+}
+input{
+    color: white !important;
+}
+input:focus {
+    border-bottom: 1px solid #607d8b !important;
+    box-shadow: 0 1px 0 0 #607d8b !important;
+}
+input:focus+label {
+    color: #607d8b !important;
+}

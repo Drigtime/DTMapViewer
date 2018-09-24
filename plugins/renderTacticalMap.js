@@ -5,11 +5,11 @@ MAP_HEIGHT = 20;
 CELLPOS = [];
 
 var generateTacticalMap = (mapJson) => {
-    var obstacles = [];
-    var entitiesData = [];
-    var los = [];
-    var entities = [];
-    var content = mapJson;
+    let obstacles = [];
+    entitiesData = [],
+        los = [],
+        entities = [],
+        content = mapJson;
     for (let index = 0; index < content.cells.length; index++) {
         if (content.cells[index].l == undefined || content.cells[index].l == 64) {
             if (content.midgroundLayer[index] != undefined) {
@@ -55,7 +55,7 @@ var generateTacticalMap = (mapJson) => {
             los.push(1)
         }
     }
-    for (var i in entitiesData) {
+    for (let i in entitiesData) {
         data = entitiesData[i]
         if (!entities[data.cell])
             entities[data.cell] = [];
@@ -66,15 +66,15 @@ var generateTacticalMap = (mapJson) => {
         entities[data.cell].push(data);
     }
     initCells();
-    var canvas = $('#mapStatus')[0];
+    let canvas = $('#mapStatus')[0];
     canvas.width = tileWidth * (MAP_WIDTH + .5);
     canvas.height = tileHeight * (MAP_HEIGHT + .5);
-    var cxt = canvas.getContext("2d");
+    let cxt = canvas.getContext("2d");
     // cxt.patternQuality = 'fast';
     // cxt.filter = 'fast';
     // cxt.antialias = 'subpixel';
 
-    for (var cellId in CELLPOS) {
+    for (let cellId in CELLPOS) {
         // Affichage de la grille
         drawTile(cxt, CELLPOS[cellId].pixelX, CELLPOS[cellId].pixelY, 0xFFFFFF, 0x999999);
 
@@ -111,10 +111,10 @@ function printCellId(target, x, y, cellId) {
 }
 
 function getColorFromString(str) {
-    var i = 0;
-    var r = 0;
-    var g = 0;
-    var b = 0;
+    let i = 0;
+    let r = 0;
+    let g = 0;
+    let b = 0;
     for (i = 0; str && i < str.length; ++i) {
         switch (i % 3) {
             case 0:
@@ -188,7 +188,7 @@ function drawSquare(target, x, y, color) {
 }
 
 function drawSun(target, x, y) {
-    var img = new Image();
+    let img = new Image();
     img.onload = () => {
         target.drawImage(img, x + tileHeight * .45, y + tileHeight * .20)
     }
@@ -196,10 +196,10 @@ function drawSun(target, x, y) {
 }
 
 function initCells() {
-    var startX = 0;
-    var startY = 0;
-    var cell = 0;
-    var b;
+    let startX = 0;
+    let startY = 0;
+    let cell = 0;
+    let b;
     for (a = 0; a < MAP_HEIGHT; a++) {
         for (b = 0; b < MAP_WIDTH; b++) {
             p = cellCoords(cell);

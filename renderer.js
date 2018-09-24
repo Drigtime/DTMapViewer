@@ -1,5 +1,5 @@
 const rp = require('request-promise');
-require('./plugins/rendererTacticalMap.js')
+require('./plugins/renderTacticalMap.js')
 require('./plugins/renderRealMap.js')
 
 function dlMapJson(mapid) {
@@ -7,7 +7,8 @@ function dlMapJson(mapid) {
         uri: `https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/maps/${mapid}.json`,
         json: true
     }).then((repos) => {
-        var mapJson = repos;
+        let mapJson = repos;
+        console.log(mapJson);
         if ($('input[name=layer]:checked').val() === 'real') {
             generateRealMap(mapJson)
         } else if ($('input[name=layer]:checked').val() === 'tactical') {
@@ -15,8 +16,8 @@ function dlMapJson(mapid) {
         }
     }).catch((err) => {
         if (err.statusCode === 404) {
-            var elems = document.querySelectorAll('#unknownMap');
-            var instances = M.Modal.init(elems);
+            let elems = $('#unknownMap');
+            let instances = M.Modal.init(elems);
             $('#unknownMap > .alert-message > h4').text(`Error, map ${mapid} doesn't exist`)
             instances[0].open();
         }
@@ -25,8 +26,8 @@ function dlMapJson(mapid) {
 
 function dlData() {
     if ($('#mapid').prop('disabled')) {
-        var elems = $('#slide-out');
-        var instances = M.Modal.init(elems);
+        let elems = $('#slide-out');
+        let instances = M.Modal.init(elems);
         $('#slide-out').html(`<div class="progress"><div class="indeterminate"></div></div>`)
         instances[0].open();
         Promise.all([
@@ -48,8 +49,8 @@ function dlData() {
             })])
             .then((repos) => {
 
-                const mapList = repos[0];
-                const areaList = repos[1];
+                let mapList = repos[0];
+                let areaList = repos[1];
                 let x = $('#x').val();
                 let y = $('#y').val();
                 let match = [];
@@ -89,12 +90,7 @@ function dlData() {
 $('#render').on('click', () => {
     dlData()
 })
-$('#mapid').on('keyup', (key) => {
-    if (key.keyCode === 13) {
-        dlMapJson($('#mapid').val())
-    }
-})
-$('#x, #y').on('keyup', (key) => {
+$('#x, #y, #mapid').on('keyup', (key) => {
     if (key.keyCode === 13) {
         dlData()
     }
