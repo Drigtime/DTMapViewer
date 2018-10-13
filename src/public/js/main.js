@@ -316,8 +316,9 @@ function dlMapJson(mapid) {
 
 function dlData() {
     if ($("#mapid").prop("disabled")) {
-        $(".sidenav").sidenav();
         $("#slide-out").html(`<div class="progress"><div class="indeterminate"></div></div>`);
+        $("#slide-out").sidenav();
+        $("#slide-out").sidenav("open");
         Promise.all([
             rp({
                 method: "POST",
@@ -398,11 +399,13 @@ function dlData() {
 $("#render").on("click", () => {
     dlData();
 });
+
 $("#x, #y, #mapid").on("keyup", key => {
     if (key.keyCode === 13) {
         dlData();
     }
 });
+
 $("#x, #y").on("change", e => {
     if ($("#x").val() !== "" || $("#y").val() !== "") {
         $("#mapid").prop("disabled", true);
@@ -410,10 +413,16 @@ $("#x, #y").on("change", e => {
         $("#mapid").prop("disabled", false);
     }
 });
+
 $("#mapid").on("change", e => {
     if ($("#mapid").val() !== "") {
         $("#x, #y").prop("disabled", true);
     } else {
         $("#x, #y").prop("disabled", false);
     }
+});
+
+$(window).resize(() => {
+    $("#slide-out").sidenav();
+    $("#slide-out").sidenav("close");
 });
