@@ -1,0 +1,63 @@
+body,
+.sidenav,
+.modal,
+.modal-content,
+.modal-footer {
+    background-color: #282a2d !important;
+}
+
+main {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+    main {
+        padding-left: 0;
+    }
+}
+
+input,
+a {
+    color: white !important;
+}
+
+.collection {
+    border: 1px solid #3b4552;
+}
+
+.collection .collection-item {
+    border-bottom: 1px solid #3b4552;
+}
+
+.collection a.collection-item {
+    background-color: #282a2d;
+}
+
+::-webkit-scrollbar {
+    background-color: #27272a;
+    color: #c3bdb4;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #232325;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #30343a;
+}
+
+ul.sidenav.sidenav-fixed {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+ul.sidenav.sidenav-fixed:hover {
+    overflow-y: auto;
+}
+
+.sidenav li > a {
+    padding: 0 15px;
+}

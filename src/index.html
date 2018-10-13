@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>OwlTouch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="public/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/material-icons.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+</head>
+
+<body>
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li style="text-align: center;color: white">
+            <span>No result found</span>
+        </li>
+    </ul>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="input-field inline col s2">
+                    <input id="x" type="number">
+                    <label for="x">X</label>
+                </div>
+                <div class="input-field inline col s2">
+                    <input id="y" type="number">
+                    <label for="y">Y</label>
+                </div>
+                <div class="input-field inline col s8">
+                    <input id="mapid" type="number" value="">
+                    <label for="mapid">MapID</label>
+                </div>
+                <p class="col s3 inline">
+                    <label>
+                        <input class="with-gap" name="layer" type="radio" value="real" checked />
+                        <span>Real</span>
+                    </label>
+                </p>
+                <p class="col s3 inline">
+                    <label>
+                        <input class="with-gap" name="layer" type="radio" value="tactical" />
+                        <span>Tactical</span>
+                    </label>
+                </p>
+                <a id="render" data-target="slide-out" class="sidenav-trigger waves-effect waves-light btn col s3 offset-s3">Display
+                    map</a>
+            </div>
+            <canvas id="mapStatus" style="width: 100%"></canvas>
+        </div>
+    </main>
+
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+
+    <script src="public/js/jquery-3.3.1.min.js"></script>
+    <script src="public/js/materialize.min.js"></script>
+    <script src="public/js/main.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+</body>
+
+</html>

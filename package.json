@@ -1,24 +1,104 @@
 {
-  "name": "mapViewer",
-  "version": "1.0.0",
-  "description": "Affiche la map voulu en mode tactique || réel",
-  "main": "index.js",
-  "author": "Drigtime",
-  "license": "MIT",
-  "scripts": {
-    "start": "electron .",
-    "build-osx": "electron-packager ./ --electron-version 2.0.4 --platform darwin --overwrite --out dist/",
-    "build-linux": "electron-packager ./ --electron-version 2.0.4 --platform linux --overwrite --out dist/",
-    "build-win": "electron-packager ./ --electron-version 2.0.4 --platform win32 --overwrite --out dist/"
-  },
-  "dependencies": {
-    "color-convert": "^1.9.2",
-    "electron": "^2.0.4",
-    "jquery": "^3.3.1",
-    "materialize-css": "^1.0.0-rc.2",
-    "request-promise": "^4.2.2"
-  },
-  "devDependencies": {
-    "electron-packager": "^12.1.0"
-  }
+    "license": "MIT",
+    "author": "drigtime <drigtime@gmail.com>",
+    "name": "mapviewer",
+    "productName": "MapViewer",
+    "version": "1.1.0",
+    "description": "Dofus Touch map viewer",
+    "homepage": "https://github.com/Drigtime/mapViewer",
+    "bugs": "https://github.com/Drigtime/mapViewer/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Drigtime/mapViewer.git"
+    },
+    "main": "src/index.js",
+    "scripts": {
+        "dist:win32": "electron-builder -w --ia32 --config.nsis.artifactName=\"${productName} ${version} Setup x32.${ext}\" --config.portable.artifactName=\"${productName} ${version} x32.${ext}\"",
+        "dist:win64": "electron-builder -w --x64",
+        "dist:linux": "electron-builder -l",
+        "dist:macOS": "electron-builder -m",
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "lint": "eslint src"
+    },
+    "build": {
+        "appId": "mapviewer",
+        "productName": "MapViewer",
+        "linux": {
+            "category": "Utility"
+        },
+        "mac": {
+            "target": "tar.xz",
+            "category": "public.app-category.utilities"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "portable"
+            ]
+        },
+        "nsis": {
+            "artifactName": "${productName} ${version} Setup.${ext}",
+            "oneClick": false,
+            "license": "LICENSE",
+            "allowToChangeInstallationDirectory": true,
+            "uninstallDisplayName": "${productName} ${version}",
+            "deleteAppDataOnUninstall": true
+        },
+        "portable": {
+            "artifactName": "${productName} ${version}.${ext}",
+            "requestExecutionLevel": "user"
+        }
+    },
+    "config": {
+        "forge": {
+            "make_targets": {
+                "win32": [
+                    "squirrel"
+                ],
+                "darwin": [
+                    "zip"
+                ],
+                "linux": [
+                    "deb",
+                    "rpm"
+                ]
+            },
+            "electronPackagerConfig": {
+                "packageManager": "yarn"
+            },
+            "electronWinstallerConfig": {
+                "name": "mapviewer_forge"
+            },
+            "electronInstallerDebian": {},
+            "electronInstallerRedhat": {},
+            "github_repository": {
+                "owner": "",
+                "name": ""
+            },
+            "windowsStoreConfig": {
+                "packageName": "",
+                "name": "mapviewerforge"
+            }
+        }
+    },
+    "dependencies": {
+        "electron-compile": "^6.4.3",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.2"
+    },
+    "devDependencies": {
+        "babel-plugin-transform-async-to-generator": "^6.24.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "electron-builder": "^20.28.4",
+        "electron-forge": "^5.2.2",
+        "electron-prebuilt-compile": "3.0.2",
+        "eslint": "^3",
+        "eslint-config-airbnb": "^15",
+        "eslint-plugin-import": "^2",
+        "eslint-plugin-jsx-a11y": "^5",
+        "eslint-plugin-react": "^7"
+    }
 }
