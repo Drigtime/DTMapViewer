@@ -5,6 +5,10 @@ const MAP_WIDTH = 14;
 const MAP_HEIGHT = 20;
 let CELLPOS = [];
 
+///////////////////////////////////////////////////////////////////
+///                      GENERATE REAL MAP                      ///
+///////////////////////////////////////////////////////////////////
+
 function downloadAsset(asset, x, y, sx, sy, hue, ctx) {
     let img = new Image();
     img.onload = () => {
@@ -55,6 +59,10 @@ function generateRealMap(mapJson) {
     };
     img.src = `https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/backgrounds/${content.id}.jpg`;
 }
+
+///////////////////////////////////////////////////////////////////
+///                    GENERATE TACTICAL MAP                    ///
+///////////////////////////////////////////////////////////////////
 
 function generateTacticalMap(mapJson) {
     let obstacles = [];
@@ -293,6 +301,10 @@ function cellCoords(cellId) {
     };
 }
 
+///////////////////////////////////////////////////////////////////
+///                      DOWNLOAD MAP FILES                     ///
+///////////////////////////////////////////////////////////////////
+
 function dlMapJson(mapid) {
     rp({
         uri: `https://ankama.akamaized.net/games/dofus-tablette/assets/2.21.2/maps/${mapid}.json`,
@@ -395,6 +407,10 @@ function dlData() {
         dlMapJson($("#mapid").val());
     }
 }
+
+///////////////////////////////////////////////////////////////////
+///                       EVENT LISTENER                        ///
+///////////////////////////////////////////////////////////////////
 
 $("#render").on("click", () => {
     dlData();
