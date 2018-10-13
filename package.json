@@ -26,6 +26,10 @@
         "appId": "mapviewer",
         "productName": "MapViewer",
         "linux": {
+            "target": [
+                "AppImage",
+                "tar.xz"
+            ],
             "category": "Utility"
         },
         "mac": {
