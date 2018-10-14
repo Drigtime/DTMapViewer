@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>OwlTouch</title>
+    <title>MapViewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="public/css/materialize.min.css" />
     <link rel="stylesheet" type="text/css" href="public/css/material-icons.css" />
@@ -46,6 +46,14 @@
                 </p>
                 <a id="render" data-target="slide-out" class="sidenav-trigger waves-effect waves-light btn col s3 offset-s3">Display
                     map</a>
+            </div>
+            <div id="auto-update-modal" class="modal">
+                <div class="modal-content">
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" id="ignore-update" class="modal-close waves-effect waves-green btn-flat">Ignore</a>
+                    <a href="#!" id="download-update" class="modal-close waves-effect waves-green btn">Download</a>
+                </div>
             </div>
             <canvas id="mapStatus" style="width: 100%"></canvas>
         </div>

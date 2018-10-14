@@ -1,4 +1,5 @@
 const rp = require("request-promise");
+
 const tileWidth = 88;
 const tileHeight = 42;
 const MAP_WIDTH = 14;

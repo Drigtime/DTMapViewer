@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, protocol, ipcMain, dialog } from "electron";
+import { autoUpdater } from "electron-updater";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -50,3 +51,45 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+autoUpdater.autoDownload = false;
+
+autoUpdater.on("error", error => {
+    dialog.showErrorBox("Error: ", error == null ? "unknown" : (error.stack || error).toString());
+});
+
+autoUpdater.on("update-available", () => {
+    dialog.showMessageBox(
+        {
+            type: "info",
+            title: "Found Updates",
+            message: "Found updates, do you want update now?",
+            buttons: ["No", "Yes"]
+        },
+        buttonIndex => {
+            if (buttonIndex === 1) {
+                autoUpdater.downloadUpdate();
+            }
+        }
+    );
+});
+
+autoUpdater.on("update-downloaded", () => {
+    dialog.showMessageBox(
+        {
+            title: "Install Updates",
+            message: "Updates downloaded, quit the application to apply changes.",
+            buttons: ["Later", "Restart"]
+        },
+        buttonIndex => {
+            if (buttonIndex === 1) {
+                setImmediate(() => autoUpdater.quitAndInstall());
+            }
+        }
+    );
+});
+
+// export this to MenuItem click callback
+app.on("ready", () => {
+    autoUpdater.checkForUpdates();
+});

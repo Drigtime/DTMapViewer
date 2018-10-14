@@ -1,9 +1,10 @@
 {
-    "license": "MIT",
     "author": "drigtime <drigtime@gmail.com>",
+    "license": "MIT",
     "name": "mapviewer",
     "productName": "MapViewer",
-    "version": "1.1.0",
+    "version": "1.2.0",
+    "main": "src/index.js",
     "description": "Dofus Touch map viewer",
     "homepage": "https://github.com/Drigtime/mapViewer",
     "bugs": "https://github.com/Drigtime/mapViewer/issues",
@@ -11,19 +12,19 @@
         "type": "git",
         "url": "https://github.com/Drigtime/mapViewer.git"
     },
-    "main": "src/index.js",
     "scripts": {
         "dist:win32": "electron-builder -w --ia32 --config.nsis.artifactName=\"${productName} ${version} Setup x32.${ext}\" --config.portable.artifactName=\"${productName} ${version} x32.${ext}\"",
         "dist:win64": "electron-builder -w --x64",
         "dist:linux": "electron-builder -l",
         "dist:macOS": "electron-builder -m",
+        "publish": "build --linux --mac --win -p always",
         "start": "electron-forge start",
         "package": "electron-forge package",
         "make": "electron-forge make",
         "lint": "eslint src"
     },
     "build": {
-        "appId": "mapviewer",
+        "appId": "com.drigtime.mapviewer",
         "productName": "MapViewer",
         "linux": {
             "target": [
@@ -89,6 +90,7 @@
     },
     "dependencies": {
         "electron-compile": "^6.4.3",
+        "electron-updater": "^3.1.2",
         "request": "^2.88.0",
         "request-promise": "^4.2.2"
     },
